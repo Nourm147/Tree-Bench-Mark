@@ -3,21 +3,16 @@ package Algorithms;
 import java.util.ArrayList;
 import java.util.List;
 
-public abstract class AbstractBinarySearchTree<T extends Comparable<T>> {
+public abstract class AbstractBinarySearchTree {
 
-    private TreeNode<T> root;
-    private final TreeNode<T> nil;
+    protected BinaryTreeNode root;
+    protected BinaryTreeNode nil;
 
-    public AbstractBinarySearchTree() {
-        nil = new TreeNode<>(null);
-        root = nil;
-    }
-
-    public TreeNode getRoot() {
+    public BinaryTreeNode getRoot() {
         return root;
     }
 
-    public void setRoot(TreeNode root) {
+    public void setRoot(BinaryTreeNode root) {
         this.root = root;
     }
 
@@ -30,23 +25,29 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>> {
         return size(root);
     }
 
-    public boolean contains(T v) {
+    public boolean contains(int v) {
         return contains(root, v);
     }
 
-    public T[] inOrder() {
-        List<T> list = new ArrayList<>();
+    public int[] inOrder() {
+        List<Integer> list = new ArrayList<>();
         inOrder(root, list);
-        return (T[]) list.toArray();
+        int[] result = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            result[i] = list.get(i);
+        }
+        return result;
     }
 
     // abstract methods to be implemented by subclasses
-    public abstract void insert(T v);
+    public abstract boolean insert(int v);
 
-    public abstract void delete(T v);
+    public abstract boolean delete(int v);
+
+    protected abstract BinaryTreeNode createNode(int v);
 
     // actual private implementations
-    private void inOrder(TreeNode<T> node, List<T> list) {
+    private void inOrder(BinaryTreeNode node, List<Integer> list) {
         if (node == nil) {
             return;
         }
@@ -55,11 +56,11 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>> {
         inOrder(node.getRight(), list);
     }
 
-    private boolean contains(TreeNode<T> node, T v) {
+    private boolean contains(BinaryTreeNode node, int v) {
         if (node == nil) {
             return false;
         }
-        int cmp = v.compareTo(node.getVal());
+        int cmp = Integer.compare(v, node.getVal());
         if (cmp < 0) {
             return contains(node.getLeft(), v);
         } else if (cmp > 0) {
@@ -69,18 +70,35 @@ public abstract class AbstractBinarySearchTree<T extends Comparable<T>> {
         }
     }
 
-    private int size(TreeNode node) {
+    private int size(BinaryTreeNode node) {
         if (node == nil) {
             return 0;
         }
         return 1 + size(node.getLeft()) + size(node.getRight());
     }
 
-    private int height(TreeNode node) {
+    private int height(BinaryTreeNode node) {
         if (node == nil) {
             return -1;  // zero based height
         }
         return 1 + Math.max(height(node.getLeft()), height(node.getRight()));
+    }
+
+    // helper methods
+    protected BinaryTreeNode findMin(BinaryTreeNode node) {
+        if (node == nil) {
+            return nil;
+        }
+        while (node.getLeft() != nil) {
+            node = node.getLeft();
+        }
+        return node;
+    }
+
+    protected void afterInsert(BinaryTreeNode node) {
+    }
+
+    protected void afterDelete(BinaryTreeNode node, BinaryTreeNode parent) {
     }
 
 }

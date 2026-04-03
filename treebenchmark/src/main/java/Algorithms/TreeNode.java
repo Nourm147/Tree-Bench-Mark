@@ -1,59 +1,21 @@
 package Algorithms;
 
-public class TreeNode<T extends Comparable<T>> {
+public interface TreeNode {
 
-    private T val;
-    private TreeNode left;
-    private TreeNode right;
-    private TreeNode parent;
+    int getVal();
 
-    public TreeNode(T x) {
-        val = x;
-    }
+    TreeNode getLeft();
 
-    public TreeNode(T val, TreeNode left, TreeNode right) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-    }
+    TreeNode getParent();
 
-    public TreeNode(T val, TreeNode left, TreeNode right, TreeNode parent) {
-        this.val = val;
-        this.left = left;
-        this.right = right;
-        this.parent = parent;
-    }
+    TreeNode getRight();
 
-    public T getVal() {
-        return val;
-    }
+    void setVal(int val);
 
-    public void setVal(T val) {
-        this.val = val;
-    }
+    void setLeft(TreeNode left);
 
-    public TreeNode getLeft() {
-        return left;
-    }
+    void setRight(TreeNode right);
 
-    public void setLeft(TreeNode left) {
-        this.left = left;
-    }
-
-    public TreeNode getRight() {
-        return right;
-    }
-
-    public void setRight(TreeNode right) {
-        this.right = right;
-    }
-
-    public TreeNode getParent() {
-        return parent;
-    }
-
-    public void setParent(TreeNode parent) {
-        this.parent = parent;
-    }
+    void setParent(TreeNode parent);
 
 }

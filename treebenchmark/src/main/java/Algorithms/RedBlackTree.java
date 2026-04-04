@@ -56,9 +56,8 @@ public class RedBlackTree extends BinarySearchTree {
                     rotateLeft(rb(node.getParent().getParent()));
                 }
             }
-            rb(root).setRed(false);
         }
-
+        rb(root).setRed(false);
     }
 
     private void fixDelete(RBNode node, RBNode parent) {
@@ -156,7 +155,11 @@ public class RedBlackTree extends BinarySearchTree {
 
     @Override
     protected BinaryTreeNode createNode(int v) {
-        return new RBNode(v);
+        RBNode newNode = new RBNode(v);
+        newNode.setLeft(nil);
+        newNode.setRight(nil);
+        newNode.setParent(nil);
+        return newNode;
     }
 
     private RBNode rb(BinaryTreeNode node) {

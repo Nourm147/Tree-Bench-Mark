@@ -1,7 +1,5 @@
 package Algorithms;
 
-import Utils.Pair;
-
 public class BinarySearchTree extends AbstractBinarySearchTree {
 
     public BinarySearchTree() {
@@ -17,6 +15,7 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
         BinaryTreeNode newNode = createNode(v);
         if (root == nil) {
             root = newNode;
+            afterInsert(newNode);
             return true;
         }
         BinaryTreeNode current = root;
@@ -50,57 +49,57 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
         if (root == nil) {
             return false;
         }
-        Pair<BinaryTreeNode, Boolean> result = delete(root, nil, v);
-        root = result.first;
-        return result.second;
-    }
 
-    private Pair<BinaryTreeNode, Boolean> delete(BinaryTreeNode node, BinaryTreeNode parent, int v) {
+        // Find the node
+        BinaryTreeNode node = root;
+        while (node != nil) {
+            int cmp = Integer.compare(v, node.getVal());
+            if (cmp < 0) {
+                node = node.getLeft();
+            } else if (cmp > 0) {
+                node = node.getRight();
+            } else {
+                break;
+            }
+        }
         if (node == nil) {
-            return new Pair<>(nil, false);
+            return false;
         }
 
-        int cmp = Integer.compare(v, node.getVal());
-        if (cmp < 0) {
-            Pair<BinaryTreeNode, Boolean> result = delete(node.getLeft(), node, v);
-            node.setLeft(result.first);
-            return new Pair<>(node, result.second);
-        } else if (cmp > 0) {
-            Pair<BinaryTreeNode, Boolean> result = delete(node.getRight(), node, v);
-            node.setRight(result.first);
-            return new Pair<>(node, result.second);
-        } else {
-            // Leaf
-            if (node.getLeft() == nil && node.getRight() == nil) {
-                afterDelete(node, parent); // called for RedBlackTree Deletion fix
-                return new Pair<>(nil, true);
-            }
-            // One child
-            if (node.getLeft() == nil) {
-                node.getRight().setParent(parent);
-                afterDelete(node, parent);
-                return new Pair<>(node.getRight(), true);
-            }
-            if (node.getRight() == nil) {
-                node.getLeft().setParent(parent);
-                afterDelete(node, parent);
-                return new Pair<>(node.getLeft(), true);
-            }
-            // Two children
-            /// replace with the successor
+        // Two children reduce to one/zero child case
+        if (node.getLeft() != nil && node.getRight() != nil) {
             BinaryTreeNode successor = findMin(node.getRight());
-            BinaryTreeNode successorParent = successor.getParent();
-
             node.setVal(successor.getVal());
-            node.setRight(delete(node.getRight(), node, successor.getVal()).first);
-            afterDelete(node, successorParent);
-            return new Pair<>(node, true);
+            node = successor;  // successor has at most one child (no left child)
         }
+
+        // Step 3: node now has at most one child
+        BinaryTreeNode parent = node.getParent();
+        BinaryTreeNode child = (node.getLeft() != nil) ? node.getLeft() : node.getRight();
+
+        if (child != nil) {
+            child.setParent(parent);
+        }
+
+        if (parent == nil) {
+            root = child;
+        } else if (parent.getLeft() == node) {
+            parent.setLeft(child);
+        } else {
+            parent.setRight(child);
+        }
+
+        afterDelete(node, parent);
+        return true;
     }
 
     @Override
     protected BinaryTreeNode createNode(int v) {
-        return new BinaryTreeNode(v);
+        BinaryTreeNode newNode = new BinaryTreeNode(v);
+        newNode.setLeft(nil);
+        newNode.setRight(nil);
+        newNode.setParent(nil);
+        return newNode;
     }
 
 }

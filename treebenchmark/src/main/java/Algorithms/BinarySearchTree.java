@@ -1,5 +1,7 @@
 package Algorithms;
 
+import benchmark.Validator;
+
 public class BinarySearchTree extends AbstractBinarySearchTree {
 
     public BinarySearchTree() {
@@ -16,6 +18,9 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
         if (root == nil) {
             root = newNode;
             afterInsert(newNode);
+            if (VALIDATE) {
+                Validator.checkProperties(this);
+            }
             return true;
         }
         BinaryTreeNode current = root;
@@ -26,6 +31,9 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
                     current.setLeft(newNode);
                     newNode.setParent(current);
                     afterInsert(newNode); // called for RedBlackTree Insertion fix
+                    if (VALIDATE) {
+                        Validator.checkProperties(this);
+                    }
                     return true;
                 }
                 current = current.getLeft();
@@ -34,6 +42,9 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
                     current.setRight(newNode);
                     newNode.setParent(current);
                     afterInsert(newNode);
+                    if (VALIDATE) {
+                        Validator.checkProperties(this);
+                    }
                     return true;
                 }
                 current = current.getRight();
@@ -41,7 +52,7 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
                 return false; // duplicate value
             }
         }
-        return false; // shouldn't reach here
+        throw new IllegalStateException("Unreachable code reached in insert");
     }
 
     @Override
@@ -50,7 +61,6 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
             return false;
         }
 
-        // Find the node
         BinaryTreeNode node = root;
         while (node != nil) {
             int cmp = Integer.compare(v, node.getVal());
@@ -66,14 +76,12 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
             return false;
         }
 
-        // Two children reduce to one/zero child case
         if (node.getLeft() != nil && node.getRight() != nil) {
             BinaryTreeNode successor = findMin(node.getRight());
             node.setVal(successor.getVal());
-            node = successor;  // successor has at most one child (no left child)
+            node = successor;
         }
 
-        // Step 3: node now has at most one child
         BinaryTreeNode parent = node.getParent();
         BinaryTreeNode child = (node.getLeft() != nil) ? node.getLeft() : node.getRight();
 
@@ -90,6 +98,9 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
         }
 
         afterDelete(node, parent);
+        if (VALIDATE) {
+            Validator.checkProperties(this);
+        }
         return true;
     }
 

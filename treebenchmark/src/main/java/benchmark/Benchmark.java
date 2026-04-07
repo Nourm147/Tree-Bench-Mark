@@ -89,6 +89,21 @@ public class Benchmark {
         return new BenchmarkData(label, times, -1);
     }
 
+    public BenchmarkData measureQuickSort(int[] data, String label) {
+        long[] times = new long[RUNS - WARMUP_RUNS];
+
+        for (int i = 0; i < RUNS; i++) {
+            int[] copy = data.clone(); // sort a fresh copy each run
+            long start = System.nanoTime();
+            new Algorithms.QuickSort().performSort(copy);
+            if (i >= WARMUP_RUNS) {
+                times[i - WARMUP_RUNS] = System.nanoTime() - start;
+            }
+        }
+
+        return new BenchmarkData(label, times, -1);
+    }
+
     private BinarySearchTree buildTree(Supplier<BinarySearchTree> treeFactory, int[] data) {
         BinarySearchTree tree = treeFactory.get();
         for (int v : data) {

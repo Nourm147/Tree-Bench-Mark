@@ -7,9 +7,14 @@ public abstract class AbstractBinarySearchTree {
 
     protected BinaryTreeNode root;
     protected BinaryTreeNode nil;
+    protected static final boolean VALIDATE = false;
 
     public BinaryTreeNode getRoot() {
         return root;
+    }
+
+    public BinaryTreeNode getNil() {
+        return nil;
     }
 
     public void setRoot(BinaryTreeNode root) {

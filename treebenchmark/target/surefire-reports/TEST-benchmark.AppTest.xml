@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="benchmark.AppTest" time="0.035" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="benchmark.AppTest" time="0.03" tests="58" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="21"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
-    <property name="java.class.path" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/test-classes:/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/classes:/home/nour/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nour/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="java.class.path" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/test-classes:/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/classes:/home/nour/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nour/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/nour/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/home/nour/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/home/nour/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:"/>
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
     <property name="os.name" value="Linux"/>
     <property name="java.vm.specification.version" value="21"/>
-    <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-21-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/surefire/surefirebooter12102487355702471957.jar /home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/surefire 2026-04-03T17-59-16_793-jvmRun1 surefire6597589326245749333tmp surefire_04871531290768826644tmp"/>
+    <property name="sun.java.command" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/surefire/surefirebooter2320607142648249915.jar /home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/surefire 2026-04-07T15-42-37_683-jvmRun1 surefire12984342178460961130tmp surefire_010493950135201731161tmp"/>
     <property name="jdk.debug" value="release"/>
-    <property name="surefire.test.class.path" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/test-classes:/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/classes:/home/nour/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nour/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
+    <property name="test" value="benchmark.AppTest"/>
+    <property name="surefire.test.class.path" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/test-classes:/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/classes:/home/nour/.m2/repository/junit/junit/4.11/junit-4.11.jar:/home/nour/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/nour/.m2/repository/org/slf4j/slf4j-api/2.0.13/slf4j-api-2.0.13.jar:/home/nour/.m2/repository/ch/qos/logback/logback-classic/1.5.6/logback-classic-1.5.6.jar:/home/nour/.m2/repository/ch/qos/logback/logback-core/1.5.6/logback-core-1.5.6.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
     <property name="user.home" value="/home/nour"/>
     <property name="user.language" value="en"/>
@@ -27,16 +28,17 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
-    <property name="surefire.real.class.path" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/surefire/surefirebooter12102487355702471957.jar"/>
+    <property name="surefire.real.class.path" value="/home/nour/Code/Labs/Algorithms/TreeBenchmark/treebenchmark/target/surefire/surefirebooter2320607142648249915.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="21.0.10+7-Ubuntu-124.04"/>
     <property name="user.name" value="nour"/>
     <property name="stdout.encoding" value="UTF-8"/>
     <property name="path.separator" value=":"/>
-    <property name="os.version" value="6.17.0-19-generic"/>
+    <property name="os.version" value="6.17.0-20-generic"/>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="file.encoding" value="UTF-8"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="maven.ext.class.path" value="/home/nour/.vscode/extensions/oracle.oracle-java-25.0.1/nbcode/java/maven-nblib/netbeans-eventspy.jar"/>
     <property name="localRepository" value="/home/nour/.m2/repository"/>
     <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-21"/>
     <property name="java.io.tmpdir" value="/tmp"/>
@@ -53,5 +55,62 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="65.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="benchmark.AppTest" time="0.002"/>
+  <testcase name="testLargeInsertAndDelete[BST]" classname="benchmark.AppTest" time="0.003"/>
+  <testcase name="testInsertDescendingOrder[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteNonExistent[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteSingleElement[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteWithTwoChildren[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testComplexMixedOperations[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightSingleNode[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightUnbalancedBST[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testRBTBalancing[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertDuplicate[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightEmptyTree[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertRandomOrder[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testRBTColorProperties[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testEmptyTreeOperations[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertMultipleElements[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testContains[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testSizeAfterDeletes[BST]" classname="benchmark.AppTest" time="0.001"/>
+  <testcase name="testValidatorDetectsBSTViolation[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightBalancedTree[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInOrderNoDuplicates[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testSequentialInsertDelete[BST]" classname="benchmark.AppTest" time="0.001"/>
+  <testcase name="testDeleteRoot[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testSizeAfterInserts[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testValidatorSizeConsistency[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertSingleElement[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInOrderSorted[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteWithOneChild[BST]" classname="benchmark.AppTest" time="0.001"/>
+  <testcase name="testInsertAscendingOrder[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInOrderEmptyTree[BST]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testLargeInsertAndDelete[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertDescendingOrder[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteNonExistent[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteSingleElement[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteWithTwoChildren[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testComplexMixedOperations[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightSingleNode[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightUnbalancedBST[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testRBTBalancing[RBT]" classname="benchmark.AppTest" time="0.001"/>
+  <testcase name="testInsertDuplicate[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightEmptyTree[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertRandomOrder[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testRBTColorProperties[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testEmptyTreeOperations[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertMultipleElements[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testContains[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testSizeAfterDeletes[RBT]" classname="benchmark.AppTest" time="0.001"/>
+  <testcase name="testValidatorDetectsBSTViolation[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testHeightBalancedTree[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInOrderNoDuplicates[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testSequentialInsertDelete[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testDeleteRoot[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testSizeAfterInserts[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testValidatorSizeConsistency[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertSingleElement[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInOrderSorted[RBT]" classname="benchmark.AppTest" time="0.001"/>
+  <testcase name="testDeleteWithOneChild[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInsertAscendingOrder[RBT]" classname="benchmark.AppTest" time="0"/>
+  <testcase name="testInOrderEmptyTree[RBT]" classname="benchmark.AppTest" time="0"/>
 </testsuite>

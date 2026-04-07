@@ -46,8 +46,10 @@ public class BenchmarkRunner {
             // Measure sorting performance
             BenchmarkData bstSorting = benchmark.measureSorting(BinarySearchTree::new, benchmarkInput, "BST Sorting " + dist);
             BenchmarkData rbtSorting = benchmark.measureSorting(RedBlackTree::new, benchmarkInput, "RBT Sorting " + dist);
+            BenchmarkData quickSort = benchmark.measureQuickSort(benchmarkInput.getInsertData(), "Quick Sort " + dist);
             printStats(bstSorting);
             printStats(rbtSorting);
+            printStats(quickSort);
             printSpeedup(bstSorting, rbtSorting);
         }
     }

@@ -97,7 +97,7 @@ public class BinarySearchTree extends AbstractBinarySearchTree {
             parent.setRight(child);
         }
 
-        afterDelete(node, parent);
+        afterDelete(child, parent, node);
         if (VALIDATE) {
             Validator.checkProperties(this);
         }

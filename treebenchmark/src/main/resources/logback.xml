@@ -1,11 +1,4 @@
 <configuration>
-
-    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>| %-50msg │%n</pattern>
-        </encoder>
-    </appender>
-
     <appender name="FILE" class="ch.qos.logback.core.FileAppender">
         <file>logs/tree-debug.log</file>
         <append>false</append>
@@ -14,9 +7,8 @@
         </encoder>
     </appender>
 
-    <root level="DEBUG">
+    <root level="WARN">
         <appender-ref ref="FILE"/>
-        <appender-ref ref="CONSOLE"/>
     </root>
 
 </configuration>

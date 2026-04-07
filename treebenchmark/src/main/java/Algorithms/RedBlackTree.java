@@ -13,12 +13,15 @@ public class RedBlackTree extends BinarySearchTree {
 
     @Override
     protected void afterInsert(BinaryTreeNode node) {
-        fixInsert((RBNode) node);
+        fixInsert(rb(node));
     }
 
     @Override
-    protected void afterDelete(BinaryTreeNode node, BinaryTreeNode parent) {
-        fixDelete((RBNode) node, (RBNode) parent);
+    protected void afterDelete(BinaryTreeNode node, BinaryTreeNode parent, BinaryTreeNode deletedNode) {
+        if (rb(deletedNode).isRed()) {
+            return;
+        }
+        fixDelete(rb(node), rb(parent));
     }
 
     private void fixInsert(RBNode node) {

@@ -103,7 +103,7 @@ public abstract class AbstractBinarySearchTree {
     protected void afterInsert(BinaryTreeNode node) {
     }
 
-    protected void afterDelete(BinaryTreeNode node, BinaryTreeNode parent) {
+    protected void afterDelete(BinaryTreeNode node, BinaryTreeNode parent, BinaryTreeNode deletedNode) {
     }
 
 }

@@ -32,7 +32,7 @@ public class Benchmark {
     }
 
     public BenchmarkData measureContains(Supplier<BinarySearchTree> treeFactory,
-            BenchmarkInput input, String label) {
+            BenchmarkInput input, String label, int treeHeight) {
         long[] times = new long[RUNS - WARMUP_RUNS];
 
         for (int i = 0; i < RUNS; i++) {
@@ -49,11 +49,11 @@ public class Benchmark {
             }
         }
 
-        return new BenchmarkData(label, times, -1);
+        return new BenchmarkData(label, times, treeHeight);
     }
 
     public BenchmarkData measureDelete(Supplier<BinarySearchTree> treeFactory,
-            BenchmarkInput input, String label) {
+            BenchmarkInput input, String label, int treeHeight) {
 
         long[] times = new long[RUNS - WARMUP_RUNS];
 
@@ -68,11 +68,11 @@ public class Benchmark {
             }
         }
 
-        return new BenchmarkData(label, times, -1);
+        return new BenchmarkData(label, times, treeHeight);
     }
 
     public BenchmarkData measureSorting(Supplier<BinarySearchTree> treeFactory,
-            BenchmarkInput input, String label) {
+            BenchmarkInput input, String label, int treeHeight) {
 
         long[] times = new long[RUNS - WARMUP_RUNS];
 
@@ -86,7 +86,7 @@ public class Benchmark {
             }
         }
 
-        return new BenchmarkData(label, times, -1);
+        return new BenchmarkData(label, times, treeHeight);
     }
 
     public BenchmarkData measureQuickSort(int[] data, String label) {
